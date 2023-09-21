@@ -1,0 +1,67 @@
+#版本控制文件-待定暂时不启用需要替换的内容太多暂时作为新增模块时使用
+
+#版本号
+[versions]
+
+compileSdk = "33"
+minSdk = "21"
+targetSdk = "33"
+# official library
+kotlin = "1.8.21"
+android-plugin = "8.0.1"
+ksp = "1.8.10"
+#third
+v-ok-http = "4.10.0"
+v-logging-interceptor = "4.11.0"
+v-rxandroid2 = "2.1.1"
+v-rxjava2 = "2.2.16"
+v-retrofit2 = "2.9.0"
+v-retrofit-rxjava-adapter = "1.0.0"
+v-rxrelay = "2.0.0"
+v-gson-converter = "2.9.0"
+v-rxadapter = "2.9.0"
+v-auto-dispose = "1.4.0"
+v-auto-dispose-ktx = "1.2.0"
+v-arouter-compiler = "1.2.2"
+v-arouter-api = "1.4.1"
+v-logger = "2.2.0"
+v-spotless = "6.18.0"
+v-dokka = "1.8.10"
+
+#插件列表
+[plugins]
+
+android-application = { id = "com.android.application", version.ref = "android-plugin" }
+android-library = { id = "com.android.library", version.ref = "android-plugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+spotless = { id = "com.diffplug.spotless", version.ref = "v-spotless" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "v-dokka" }
+
+#仓库
+[libraries]
+
+arouter-compiler = { module = "com.alibaba:arouter-compiler", version.ref = "v-arouter-compiler" }
+arouter-api = { module = "com.alibaba:arouter-api", version.ref = "v-arouter-api" }
+#网络请求和打印日志适配器相-start
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "v-ok-http" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "v-logging-interceptor" }
+rxandroid2 = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "v-rxandroid2" }
+rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "v-rxjava2" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "v-retrofit2" }
+retrofit-rxjava-adapter = { module = "com.jakewharton.retrofit:retrofit2-rxjava2-adapter", version.ref = "v-retrofit-rxjava-adapter" }
+rx-relay = { module = "com.jakewharton.rxrelay2:rxrelay", version.ref = "v-rxrelay" }
+gson-coverter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "v-gson-converter" }
+rx-adapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "v-rxadapter" }
+audo-dispose = { module = "com.uber.autodispose:autodispose-android-archcomponents", version.ref = "v-auto-dispose" }
+audo-dispose-ktx = { module = "com.uber.autodispose:autodispose-android-archcomponents-ktx", version.ref = "v-auto-dispose-ktx" }
+#网络请求和打印日志适配器相关-end
+logger = { module = "com.orhanobut:logger", version.ref = "v-logger" }
+
+# 一组依赖
+[bundles]
+networks = ["okhttp", "logging-interceptor", "rxandroid2", "rxjava2", "retrofit",
+    "retrofit-rxjava-adapter", "rx-relay", "gson-coverter", "rx-adapter", "audo-dispose", "audo-dispose-ktx"]
+

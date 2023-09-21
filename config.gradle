@@ -1,0 +1,6 @@
+ext {
+    isTest = true
+
+    name = "symbol"
+
+}
