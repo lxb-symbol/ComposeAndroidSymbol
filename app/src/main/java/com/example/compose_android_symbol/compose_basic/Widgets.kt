@@ -24,6 +24,10 @@ import androidx.compose.ui.unit.sp
 import com.example.compose_android_symbol.ui.theme.COLOR_F6F6F6
 
 
+/**
+ * 一行三排
+ *
+ */
 @Composable
 fun MyTextRow(
     list: List<String> = listOf("1", "2", "3")
