@@ -1,16 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+
 }
 
 android {
     namespace 'com.example.compose_android_symbol'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.compose_android_symbol"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -30,15 +32,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
     buildFeatures {
         compose true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.3.2'
-    }
+
+
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -46,20 +50,31 @@ android {
     }
 }
 
-subprojects{
+subprojects {
     apply plugin: 'org.jetbrains.dokka'
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
-    implementation platform('androidx.compose:compose-bom:2023.01.00')
+    implementation libs.core.ktx
+    implementation libs.lifecycle.runtime.ktx
+    implementation libs.activity.compose
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
+    // Import the Compose BOM
+    implementation platform(libs.compose.bom)
+
+    // Import Material Design 3 library
+    implementation libs.material3
+
+    // Import other Compose libraries without version numbers
+    // ..
+    implementation 'androidx.compose.foundation:foundation'
+    implementation libs.kotlinx.serialization.json
+
+
+    // 下面都是测试
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
